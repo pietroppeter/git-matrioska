@@ -1,0 +1,11 @@
+- [x] init git-matrioska repo and readme
+- [x] nimislides setup
+- [x] title slide
+- [x] matrioska slide
+- [x] preamble
+- [x] the problem
+- [x] what's a git workflow?
+  (example git flow)
+- [x] solution is not git submodule
+- [x] the idea/solution
+- [x] folderStructure

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.0/reveal.min.css" integrity="sha512-vFD6wFRj2whK8/X/dMgxJHinKfGlwMYtN+yRCxvxvmOgIiMIlgrFb5iOuCoqwCID+Qcq2/gY8DpmNHcAjfHWxw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.0/theme/white.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.0/plugin/highlight/monokai.min.css" integrity="sha512-z8wQkuDRFwCBfoj7KOiu1MECaRVoXx6rZQWL21x0BsVVH7JkqCp1Otf39qve6CrCycOOL5o9vgfII5Smds23rg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+  <div class="reveal">
+    <div class="slides">
+      <section data-nimib-slide-number="1" >
+      <h1><code>git-matrioska</code></h1>
+      <p>a normcore git workflow</p>
+      <p>for maintaining production (ML) repos</p>
+      
+      <p><a href="https://github.com/pietroppeter">pietroppeter</a></p>
+      </section>
+      <section data-nimib-slide-number="2" >
+      <figure>
+<img src="petit-poilu-matrioska.png" alt="">
+<figcaption></figcaption>
+</figure>
+      </section>
+      <section data-nimib-slide-number="3" >
+      <h2>preamble</h2>
+      <ul>
+      <div class="fragment fade-in" data-fragment-index="0" data-fragment-index-nimib="0"> 
+  
+      <li class="fragment fade-in-then-semi-out " data-fragment-index="0" data-fragment-index-nimib="0">
+      <p>I work in Supply Chain B2B company</p>
+      </li>
+      </div>
+  
+      <div class="fragment fade-in" data-fragment-index="1" data-fragment-index-nimib="1"> 
+  
+      <li class="fragment fade-in-then-semi-out " data-fragment-index="1" data-fragment-index-nimib="1">
+      <p>maintaining a production ML repo for past 7 years</p>
+      </li>
+      </div>
+  
+      <div class="fragment fade-in" data-fragment-index="2" data-fragment-index-nimib="2"> 
+  
+      <li class="fragment fade-in-then-semi-out " data-fragment-index="2" data-fragment-index-nimib="2">
+      <p><strong>problem</strong>: keeping a clean production repo...</p>
+      </li>
+      </div>
+  
+      <div class="fragment fade-in" data-fragment-index="3" data-fragment-index-nimib="3"> 
+  
+      <li class="fragment fade-in-then-semi-out " data-fragment-index="3" data-fragment-index-nimib="3">
+      <p>...while documenting (in a repo!) our maintenance</p>
+      </li>
+      </div>
+  
+      </ul>
+      </section>
+      <section data-nimib-slide-number="4" >
+      <figure>
+<img src="isthisnormcore.jpg" alt="">
+<figcaption></figcaption>
+</figure>
+      </section>
+      <section data-nimib-slide-number="5" >
+      <figure>
+<img src="what-is-a-git-workflow.png" alt="">
+<figcaption></figcaption>
+</figure>
+      </section>
+      <section data-nimib-slide-number="6" >
+      <blockquote>
+<p>a repo inside a repo, the solution is...</p>
+</blockquote>
+      <div class="fragment fade-in" data-fragment-index="4" data-fragment-index-nimib="4"> 
+  
+      <div class="fragment strike" data-fragment-index="5" data-fragment-index-nimib="5"> 
+  
+      <p><code>git submodule</code></p>
+      </div>
+  
+      </div>
+  
+      </section>
+      <section data-nimib-slide-number="7" >
+      <h2>the idea</h2>
+      <ol>
+      <div class="fragment fade-in" data-fragment-index="6" data-fragment-index-nimib="6"> 
+  
+      <li class="fragment fade-in-then-semi-out " data-fragment-index="6" data-fragment-index-nimib="6">
+      <p>start with a production (ML) repo (e.g. <code>mliska</code>)</p>
+      </li>
+      </div>
+  
+      <div class="fragment fade-in" data-fragment-index="7" data-fragment-index-nimib="7"> 
+  
+      <li class="fragment fade-in-then-semi-out " data-fragment-index="7" data-fragment-index-nimib="7">
+      <p><em>feel</em> the problem (clean prod &amp; track changes)</p>
+      </li>
+      </div>
+  
+      <div class="fragment fade-in" data-fragment-index="8" data-fragment-index-nimib="8"> 
+  
+      <li class="fragment fade-in-then-semi-out " data-fragment-index="8" data-fragment-index-nimib="8">
+      <p>create <code>mloska</code></p>
+      </li>
+      </div>
+  
+      <div class="fragment fade-in" data-fragment-index="9" data-fragment-index-nimib="9"> 
+  
+      <li class="fragment fade-in-then-semi-out " data-fragment-index="9" data-fragment-index-nimib="9">
+      <p>checkout <code>mliska</code> inside <code>mloska</code></p>
+      </li>
+      </div>
+  
+      <div class="fragment fade-in" data-fragment-index="10" data-fragment-index-nimib="10"> 
+  
+      <li class="fragment fade-in-then-semi-out " data-fragment-index="10" data-fragment-index-nimib="10">
+      <p>add <code>mliska</code> to <code>.gitignore</code></p>
+      </li>
+      </div>
+  
+      </ol>
+      </section>
+      <section data-nimib-slide-number="8" >
+      <h2>Example folder structure</h2>
+<pre><code>mloska/
+├─ .git/
+├─ dev/
+│  ├─ 1_first_feature.ipynb
+│  ├─ 2_first_bug.py
+│  ├─ 3_not_a_bug_yay.md
+├─ mliska/
+│  ├─ .git/
+│  ├─ app.py
+├─ .gitignore
+</code></pre>
+      </section>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.0/reveal.js" integrity="sha512-+Dy2HJZ3Z1DWerDhqFE7AH2HTfnbq8RC1pKOashfMwx1s01fjPUebWoHqrRedU1yFimkexmzJJRilKxjs7lz8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.0/plugin/highlight/highlight.min.js" integrity="sha512-U3fPDUX5bMrn1wnYqjaK44MFA9E6MKS+zPAg9WPAGF5XhReBeDj3FGaA831CjueG+YJxYA3WaO/m33kMIoOs/A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.2.0/plugin/notes/notes.min.js" integrity="sha512-v2co+5nr0bgHekutTzF5jAB0UAjM95dpCF7VVw7WsFCjfxonbQo8Vwl487tNYl0iHWHHGV4o5xKBp5ifyhJkWg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    Reveal.initialize({
+      plugins: [ 
+        RevealHighlight,
+        RevealNotes,
+      ],
+    });
+  </script>
+  </body>
+</html>
